@@ -15,7 +15,14 @@ type UIButtonProps = {
 const paddingHorizontal: number = 12;
 const paddingVertical: number = 3;
 
-const UIButton = styled.button<UIButtonProps>((props) => ({
+const UIButton = styled.button<UIButtonProps>(({
+  color,
+  width,
+  height,
+  backgroundColor,
+  fontSize,
+  fontColorOnHover,
+}) => ({
   all: 'unset',
   margin: 0,
 
@@ -24,25 +31,25 @@ const UIButton = styled.button<UIButtonProps>((props) => ({
   paddingTop: paddingVertical,
   paddingBottom: paddingVertical,
 
-  width: props.width ?? 'auto',
-  height: props.height ?? 40,
-  fontSize: props.fontSize ?? 24,
+  width: width ?? 'auto',
+  height: height ?? 40,
+  fontSize: fontSize ?? 24,
 
-  color: props.color ?? DefaultButtonColors.FONT_COLOR,
+  color: color ?? DefaultButtonColors.FONT_COLOR,
   borderWidth: 1,
-  borderColor: props.color ?? DefaultButtonColors.BORDER_COLOR,
+  borderColor: color ?? DefaultButtonColors.BORDER_COLOR,
   borderStyle: 'solid',
   borderRadius: 20,
 
-  background: props.backgroundColor ?? DefaultButtonColors.BACKGROUND_COLOR,
+  background: backgroundColor ?? DefaultButtonColors.BACKGROUND_COLOR,
 
   transitionDuration: '50ms',
   transitionTimingFunction: 'linear',
   transitionProperty: 'all',
 
   ':hover': {
-    color: props.fontColorOnHover ?? DefaultButtonColors.FONT_COLOR_HOVER,
-    background: props.color ?? DefaultButtonColors.BACKGROUND_COLOR_HOVER,
+    color: fontColorOnHover ?? DefaultButtonColors.FONT_COLOR_HOVER,
+    background: color ?? DefaultButtonColors.BACKGROUND_COLOR_HOVER,
     cursor: 'pointer',
   },
 
